@@ -1,10 +1,10 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect,  useState } from 'react';
 import './up-down.css'
 
 function UpDownProject() {
-    const timerRef = useRef<string | number | NodeJS.Timeout>(0)
+    // const timerRef = useRef<string | number | NodeJS.Timeout>(0)
     const [log, setLog] = useState<string>("")
-    const [scrollDirection, setScrollDirection] = useState(0)
+    // const [scrollDirection, setScrollDirection] = useState(0)
 
     useEffect(()=> {
         Object.keys(window).forEach(key => {
@@ -30,12 +30,12 @@ function UpDownProject() {
         // },  { passive:false });
       },[])
 
-    const scrollText = 
-        scrollDirection > 0 ? 
-            "UP" : 
-            scrollDirection < 0 ? 
-                "DOWN" : 
-                "SCROLL"
+    // const scrollText = 
+    //     scrollDirection > 0 ? 
+    //         "UP" : 
+    //         scrollDirection < 0 ? 
+    //             "DOWN" : 
+    //             "SCROLL"
       
   return (
     // <div className="indicator">
