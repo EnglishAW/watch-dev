@@ -1,24 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
-import ProjectShortcut from './components/project-icon/project-shortcut';
-import ProjectList from './components/project-list/project-list';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import UpDownProject from './projects/up-down/up-down';
+import Home from './projects/home/home';
 
 function App() {
   return (
     <div className="App">
-      <ProjectList>
-        <ProjectShortcut title="First"/>
-        <ProjectShortcut title="Demo"/>
-        <ProjectShortcut title="Mock"/>
-        <ProjectShortcut title="Nothing"/>
-        <ProjectShortcut title="Icon"/>
-        <ProjectShortcut title="Test"/>
-        <ProjectShortcut title="Demo"/>
-        <ProjectShortcut title="Mock"/>
-        <ProjectShortcut title="Nothing"/>
-        <ProjectShortcut title="Icon"/>
-        <ProjectShortcut title="End"/>
-      </ProjectList>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="up-down" element={<UpDownProject />} />
+          {/* <Route path="blogs" element={<Blogs />} /> */}
+          {/* <Route path="contact" element={<Contact />} /> */}
+          {/* <Route path="*" element={<NoPage />} /> */}
+        {/* </Route> */}
+      </Routes>
+    </BrowserRouter>
+      
     </div>
   );
 }

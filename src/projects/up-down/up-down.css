@@ -1,0 +1,10 @@
+.indicator {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Helvetica';
+    font-size: 84px;
+    font-weight: bold;
+    height: 100vh;
+}
