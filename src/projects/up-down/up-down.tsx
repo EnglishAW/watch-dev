@@ -4,20 +4,16 @@ import './up-down.css'
 function UpDownProject() {
     const timerRef = useRef<string | number | NodeJS.Timeout>(0)
     // const [scrollDirection, setScrollDirection] = useState(0)
-    const [log, setLog] = useState("")
-    // const [scrollY, setScrollY] = useState(0)
+    const [scrollY, setScrollY] = useState(0)
 
     useEffect(()=> {
-        Object.keys(window).forEach(key => {
-            if (/^on/.test(key)) {
-                window.addEventListener(key.slice(2), event => {
-                    setLog((l) => `${event.type} | ${l}`)
-                });
-            }
-        });
+        window.onscroll = function(e) {
+            // print "false" if direction is down and "true" if up
+            // console.log(e);
+          }
         window.addEventListener("scroll", (event) => {
             console.log(window.scrollY)
-            // setScrollY(window.scrollY)
+            setScrollY(window.scrollY)
             // setScrollDirection(event.deltaY > 0 ? -1 : 1)
             // setScrollDirection(1)
 
@@ -40,8 +36,8 @@ function UpDownProject() {
     //             "SCROLL"
       
   return (
-    <div className="">
-        {log}
+    <div className="indicator">
+        {scrollY}
     </div>
   );
 }
