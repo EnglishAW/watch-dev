@@ -1,33 +1,31 @@
-import React, { useEffect,  useState } from 'react';
+import React, { useEffect,  useRef,  useState } from 'react';
 import './up-down.css'
 
 function UpDownProject() {
-    // const timerRef = useRef<string | number | NodeJS.Timeout>(0)
-    const [log, setLog] = useState<string>("")
-    // const [scrollDirection, setScrollDirection] = useState(0)
+    const timerRef = useRef<string | number | NodeJS.Timeout>(0)
+    const [scrollDirection, setScrollDirection] = useState(0)
+    const [scrollY, setScrollY] = useState(0)
 
     useEffect(()=> {
-        Object.keys(window).forEach(key => {
-            if (/^on/.test(key)) {
-                window.addEventListener(key.slice(2), event => {
-                    console.log(event.type);
-                    setLog((l) => `${event.type} | ${l}`)
-                });
-            }
-        });
-        // window.addEventListener("scroll", (event) => {
-        //     // setScrollDirection(event.deltaY > 0 ? -1 : 1)
-        //     setScrollDirection(1)
+        window.onscroll = function(e) {
+            // print "false" if direction is down and "true" if up
+            // console.log(e);
+          }
+        window.addEventListener("scroll", (event) => {
+            console.log(window.scrollY)
+            setScrollY(window.scrollY)
+            // setScrollDirection(event.deltaY > 0 ? -1 : 1)
+            setScrollDirection(1)
 
-        //     // Debounce no input to set scroll back to neither direction
-        //     clearTimeout(timerRef.current)
-        //     timerRef.current = setTimeout(() => {
-        //         setScrollDirection(0)
-        //     }, 750)
+            // Debounce no input to set scroll back to neither direction
+            clearTimeout(timerRef.current)
+            timerRef.current = setTimeout(() => {
+                setScrollDirection(0)
+            }, 750)
 
-        //     event.preventDefault();
-        //     event.stopPropagation();
-        // },  { passive:false });
+            event.preventDefault();
+            event.stopPropagation();
+        },  { passive:false });
       },[])
 
     // const scrollText = 
@@ -38,11 +36,8 @@ function UpDownProject() {
     //             "SCROLL"
       
   return (
-    // <div className="indicator">
-    //     {scrollText}
-    // </div>
-    <div className="log">
-        {log}
+    <div className="indicator">
+        {scrollY}
     </div>
   );
 }
