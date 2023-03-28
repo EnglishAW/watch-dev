@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import ProjectShortcut from './components/project-icon/project-shortcut';
 import ProjectList from './components/project-list/project-list';
