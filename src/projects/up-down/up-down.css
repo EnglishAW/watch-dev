@@ -8,3 +8,9 @@
     font-weight: bold;
     height: 100vh;
 }
+
+.log {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
