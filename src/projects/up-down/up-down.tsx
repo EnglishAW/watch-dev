@@ -6,8 +6,9 @@ function UpDownProject() {
     const [scrollDirection, setScrollDirection] = useState(0)
 
     useEffect(()=> {
-        window.addEventListener("wheel", (event) => {
-            setScrollDirection(event.deltaY > 0 ? -1 : 1)
+        window.addEventListener("scroll", (event) => {
+            // setScrollDirection(event.deltaY > 0 ? -1 : 1)
+            setScrollDirection(1)
 
             // Debounce no input to set scroll back to neither direction
             clearTimeout(timerRef.current)
