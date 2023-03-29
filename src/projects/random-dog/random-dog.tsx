@@ -43,7 +43,7 @@ function RandomDogProject() {
     }
   return (
     <div className="layout">
-        <img src={imgSrc} onClick={onClickImage}/>
+        <img src={imgSrc} alt={breedName} onClick={onClickImage}/>
         <div className={`meta-tag ${showMetaClassName}`}>
             <h1>{breedName}</h1>
             <RefreshIcon fill="white" width="30px" height="30px" onClick={getRandomDogPic}/>
