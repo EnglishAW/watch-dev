@@ -63,11 +63,6 @@ function RandomDogProject() {
         setClickDelayTimer(timer)
     }
 
-    const onLongPressImage = () => {
-
-        setIsImageCover((currState) => !currState)
-    }
-
   return (
     <div className="layout">
         <img className={`${imageSizeClassName}`} src={imgSrc} alt={breedName} onClick={onClickImage} />
