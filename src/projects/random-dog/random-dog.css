@@ -9,7 +9,15 @@ img {
     z-index: -10;
     width: 100vw;
     height: 100vh;
+
+}
+
+.image-cover {
     object-fit: cover;
+}
+
+.image-fit {
+    object-fit: contain;
 }
 
 .meta-tag {
@@ -24,6 +32,9 @@ img {
     background-color: black;
     opacity: 0.7;
     margin-top: auto;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
 }
 
 .hidden {

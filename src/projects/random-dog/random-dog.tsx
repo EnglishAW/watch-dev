@@ -13,6 +13,7 @@ const capitalizeWords = (string: string) => {
 function RandomDogProject() {
 
     const [showMetaTag, setShowMetaTag] = useState(true)
+    const [isImageCover, setIsImageCover] = useState(true)
     const [imgSrc, setImgSrc] = useState("")
     const [breedName, setBreedName] = useState("")
 
@@ -37,13 +38,19 @@ function RandomDogProject() {
     },[])
 
     const showMetaClassName = showMetaTag ? "" : "hidden"
+    const imageSizeClassName = isImageCover ? "image-cover" : "image-fit"
 
     const onClickImage = () => {
         setShowMetaTag((currState) => !currState)
     }
+
+    const onLongPressImage = () => {
+        setIsImageCover((currState) => !currState)
+    }
+
   return (
     <div className="layout">
-        <img src={imgSrc} alt={breedName} onClick={onClickImage}/>
+        <img className={`${imageSizeClassName}`} src={imgSrc} alt={breedName} onClick={onClickImage} onContextMenu={onLongPressImage}/>
         <div className={`meta-tag ${showMetaClassName}`}>
             <h1>{breedName}</h1>
             <RefreshIcon fill="white" width="30px" height="30px" onClick={getRandomDogPic}/>
