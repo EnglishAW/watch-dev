@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import ProjectShortcut from 'components/project-icon/project-shortcut';
-import ProjectList from 'components/project-list/project-list';
+import ProjectShortcut from '../../components/project-icon/project-shortcut';
+import ProjectList from '../../components/project-list/project-list';
 import './home.css'
 
 function Home() {
