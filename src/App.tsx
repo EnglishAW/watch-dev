@@ -13,7 +13,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="up-down" element={<UpDownProject />} />
           <Route path="random-dog" element={<RandomDogProject />} />
-          <Route path="*" element={<Home />} />
+          {/* <Route path="*" element={<Home />} /> */}
       </Routes>
     </BrowserRouter>
       
