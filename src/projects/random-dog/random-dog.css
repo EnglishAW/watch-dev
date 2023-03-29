@@ -1,0 +1,37 @@
+.layout {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    /* height: 100vh; */
+}
+
+img {
+    position:absolute;
+    top: 0;
+    z-index: -10;
+    /* display: block; */
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+}
+
+.meta-tag {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display:flex;
+    justify-content: space-between;
+    /* justify-content: center; */
+    align-items: center;
+    padding: 0px 20px;
+    background-color: black;
+    opacity: 0.7;
+    margin-top: auto;
+    /* max-height: 40px; */
+}
+
+.hidden {
+    visibility: false;
+    display: none;
+}
