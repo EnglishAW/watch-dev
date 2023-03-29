@@ -1,6 +1,6 @@
 import React, { useEffect,  useState } from 'react';
 // import {ReactComponent as RefreshIcon} from 'assets/icons/refresh-icon.svg';
-import './random-dog.css'
+//import './random-dog.css'
 
 const capitalizeWords = (string: string) => {
     const words = string.split(' ');
