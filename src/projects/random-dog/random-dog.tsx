@@ -16,8 +16,13 @@ function RandomDogProject() {
     const [isImageCover, setIsImageCover] = useState(true)
     const [imgSrc, setImgSrc] = useState("")
     const [breedName, setBreedName] = useState("")
+    const [clickDelayTimer, setClickDelayTimer] = useState<string | number | NodeJS.Timeout>(0)
+    
+    // const [isLoading, setIsLoading] = useState(true)
+
 
     const getRandomDogPic = () => {
+        
         fetch('https://dog.ceo/api/breeds/image/random')
         .then(response => response.json())
         .then(data => {
@@ -29,8 +34,11 @@ function RandomDogProject() {
             const breedString = capitalizeWords(match[2].replace('-', ' '))
 
             setBreedName(breedString)
+            
         })
-        .catch(error => console.error(error));
+        .catch(error => {
+            console.error(error)
+        });
     }
 
     useEffect(() => {
@@ -39,18 +47,30 @@ function RandomDogProject() {
 
     const showMetaClassName = showMetaTag ? "" : "hidden"
     const imageSizeClassName = isImageCover ? "image-cover" : "image-fit"
+    // const imageLoadingClassName = isLoading ? "image-loading" : ""
 
-    const onClickImage = () => {
-        setShowMetaTag((currState) => !currState)
+    const onClickImage = (event: any) => {
+        if(event.detail == 2){
+			console.log("Double Clicked")
+            clearTimeout(clickDelayTimer)
+            setIsImageCover((currState) => !currState)
+            return
+		}
+
+        const timer = setTimeout(()=> {
+            setShowMetaTag((currState) => !currState)
+        },300)
+        setClickDelayTimer(timer)
     }
 
     const onLongPressImage = () => {
+
         setIsImageCover((currState) => !currState)
     }
 
   return (
     <div className="layout">
-        <img className={`${imageSizeClassName}`} src={imgSrc} alt={breedName} onClick={onClickImage} onContextMenu={onLongPressImage}/>
+        <img className={`${imageSizeClassName}`} src={imgSrc} alt={breedName} onClick={onClickImage} />
         <div className={`meta-tag ${showMetaClassName}`}>
             <h1>{breedName}</h1>
             <RefreshIcon fill="white" width="30px" height="30px" onClick={getRandomDogPic}/>

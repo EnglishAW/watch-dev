@@ -20,6 +20,11 @@ img {
     object-fit: contain;
 }
 
+.image-loading {
+    filter: blur(12px);
+    -webkit-filter: blur(12px);
+}
+
 .meta-tag {
     position: absolute;
     bottom: 0;
