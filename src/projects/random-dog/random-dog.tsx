@@ -1,5 +1,5 @@
 import React, { useEffect,  useState } from 'react';
-import {ReactComponent as RefreshIcon} from 'assets/icons/refresh-icon.svg';
+// import {ReactComponent as RefreshIcon} from 'assets/icons/refresh-icon.svg';
 import './random-dog.css'
 
 const capitalizeWords = (string: string) => {
@@ -46,7 +46,7 @@ function RandomDogProject() {
         <img src={imgSrc} alt={breedName} onClick={onClickImage}/>
         <div className={`meta-tag ${showMetaClassName}`}>
             <h1>{breedName}</h1>
-            <RefreshIcon fill="white" width="30px" height="30px" onClick={getRandomDogPic}/>
+            {/* <RefreshIcon fill="white" width="30px" height="30px" onClick={getRandomDogPic}/> */}
         </div>
         
     </div>
