@@ -1,6 +1,6 @@
 import React, { useEffect,  useState } from 'react';
-// import {ReactComponent as RefreshIcon} from 'assets/icons/refresh-icon.svg';
-//import './random-dog.css'
+import {ReactComponent as RefreshIcon} from 'assets/icons/refresh-icon.svg';
+import './random-dog.css'
 
 const capitalizeWords = (string: string) => {
     const words = string.split(' ');
@@ -22,10 +22,10 @@ function RandomDogProject() {
         .then(data => {
             // console.log(data)
             setImgSrc(data.message)
-            const regex = /(?<=breeds\/)(.*)(?=\/)/g;
+            const regex = /(breeds\/)(.*)(\/)/;
             const match = data.message.match(regex);
             // console.log(match)
-            const breedString = capitalizeWords(match[0].replace('-', ' '))
+            const breedString = capitalizeWords(match[2].replace('-', ' '))
 
             setBreedName(breedString)
         })
@@ -46,7 +46,7 @@ function RandomDogProject() {
         <img src={imgSrc} alt={breedName} onClick={onClickImage}/>
         <div className={`meta-tag ${showMetaClassName}`}>
             <h1>{breedName}</h1>
-            {/* <RefreshIcon fill="white" width="30px" height="30px" onClick={getRandomDogPic}/> */}
+            <RefreshIcon fill="white" width="30px" height="30px" onClick={getRandomDogPic}/>
         </div>
         
     </div>
