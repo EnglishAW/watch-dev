@@ -50,7 +50,7 @@ function RandomDogProject() {
     // const imageLoadingClassName = isLoading ? "image-loading" : ""
 
     const onClickImage = (event: any) => {
-        if(event.detail == 2){
+        if(event.detail === 2){
 			console.log("Double Clicked")
             clearTimeout(clickDelayTimer)
             setIsImageCover((currState) => !currState)
